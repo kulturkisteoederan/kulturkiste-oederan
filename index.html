@@ -6,72 +6,92 @@
   <title>Kulturkiste Oederan</title>
 
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Lato:wght@300;400;600&display=swap" rel="stylesheet">
 
   <style>
-    /* ===== Grundlayout ===== */
-    body {
+    :root {
+      --beige: #f7f4ef;
+      --braun: #3a2e2a;
+      --gold: #c19a6b;
+      --text: #2c2c2c;
+    }
+
+    * {
       margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
       font-family: 'Lato', sans-serif;
-      background-color: #f7f4ef;
-      color: #3a2e2a;
-      scroll-behavior: smooth;
+      background-color: var(--beige);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
     }
 
     /* ===== Header ===== */
     header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1rem 2rem;
-      background: #3a2e2a;
-      position: sticky;
+      position: fixed;
       top: 0;
-      z-index: 100;
-      border-bottom: 2px solid #c19a6b;
+      width: 100%;
+      background: rgba(247, 244, 239, 0.9);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid #e6dfd6;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.8rem 3rem;
+      z-index: 1000;
     }
 
     header img {
-      height: 60px;
-      filter: drop-shadow(0 0 3px rgba(0,0,0,0.3));
+      height: 55px;
     }
 
     nav a {
-      margin-left: 1.5rem;
+      margin-left: 2rem;
       text-decoration: none;
-      color: #f7f4ef;
+      color: var(--braun);
       font-weight: 600;
-      transition: color 0.3s;
+      letter-spacing: 0.5px;
+      transition: color 0.3s ease;
     }
 
     nav a:hover {
-      color: #c19a6b;
+      color: var(--gold);
     }
 
     /* ===== Hero ===== */
     .hero {
-      position: relative;
-      height: 85vh;
+      height: 100vh;
       background: url('oederan-bg.jpg') center/cover no-repeat;
       display: flex;
       align-items: center;
       justify-content: center;
       text-align: center;
       color: white;
+      position: relative;
     }
 
     .hero::after {
       content: "";
       position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: rgba(0,0,0,0.45);
+      inset: 0;
+      background: rgba(0,0,0,0.4);
     }
 
     .hero-content {
       position: relative;
       z-index: 2;
-      max-width: 800px;
+      max-width: 700px;
       padding: 1rem;
+      animation: fadeIn 2s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     .hero h1 {
@@ -82,57 +102,58 @@
 
     .hero p {
       font-size: 1.2rem;
-      margin-bottom: 2rem;
+      margin-bottom: 2.5rem;
+      color: #f8f8f8;
     }
 
     .cta-btn {
-      background: #c19a6b;
+      background: var(--gold);
       color: white;
-      text-decoration: none;
-      padding: 0.9rem 1.8rem;
-      border-radius: 30px;
-      font-weight: bold;
-      transition: background 0.3s, transform 0.2s;
+      padding: 1rem 2rem;
+      border-radius: 40px;
+      font-weight: 600;
       letter-spacing: 0.5px;
+      text-decoration: none;
+      transition: all 0.3s ease;
     }
 
     .cta-btn:hover {
       background: #a17f55;
-      transform: translateY(-2px);
+      transform: translateY(-3px);
     }
 
-    /* ===== Slideshow ===== */
-    .slideshow {
-      position: relative;
-      height: 60vh;
-      overflow: hidden;
+    /* ===== Intro Section ===== */
+    .intro {
+      padding: 8rem 2rem;
+      max-width: 900px;
+      margin: auto;
+      text-align: center;
     }
 
-    .slide {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      opacity: 0;
-      transition: opacity 1s ease-in-out;
-      background-size: cover;
-      background-position: center;
+    .intro h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.2rem;
+      color: var(--braun);
+      margin-bottom: 1rem;
     }
 
-    .slide.active {
-      opacity: 1;
+    .intro p {
+      font-size: 1.1rem;
+      color: #4b403c;
+      line-height: 1.7;
     }
 
     /* ===== Footer ===== */
     footer {
-      background: #3a2e2a;
-      color: #f7f4ef;
+      background: var(--braun);
+      color: var(--beige);
       text-align: center;
-      padding: 2rem 1rem;
-      margin-top: 2rem;
+      padding: 3rem 1rem;
+      margin-top: 4rem;
     }
 
     footer a {
-      color: #c19a6b;
+      color: var(--gold);
       text-decoration: none;
       font-weight: 600;
     }
@@ -141,23 +162,18 @@
       text-decoration: underline;
     }
 
-    /* ===== Responsives Design ===== */
+    /* ===== Responsive ===== */
     @media (max-width: 768px) {
       header {
         flex-direction: column;
+        padding: 1rem;
       }
-
       nav {
         margin-top: 0.5rem;
       }
-
-      .hero h1 {
-        font-size: 2.2rem;
-      }
-
-      .hero p {
-        font-size: 1rem;
-      }
+      .hero h1 { font-size: 2.2rem; }
+      .hero p { font-size: 1rem; }
+      .intro { padding: 5rem 1.5rem; }
     }
   </style>
 </head>
@@ -174,7 +190,7 @@
     </nav>
   </header>
 
-  <!-- ===== Hero-Bereich ===== -->
+  <!-- ===== Hero ===== -->
   <section class="hero">
     <div class="hero-content">
       <h1>Geschichten, die unsere Heimat erzählen</h1>
@@ -183,28 +199,20 @@
     </div>
   </section>
 
-  <!-- ===== Slideshow ===== -->
-  <section class="slideshow">
-    <div class="slide active" style="background-image: url('altstadt.jpg');"></div>
-    <div class="slide" style="background-image: url('natur.jpg');"></div>
-    <div class="slide" style="background-image: url('buchcover.jpg');"></div>
+  <!-- ===== Intro-Abschnitt ===== -->
+  <section class="intro">
+    <h2>Heimat in jedem Wort</h2>
+    <p>
+      Die Kulturkiste Oederan ist ein Herzensprojekt aus Sachsen.  
+      Wir sammeln, gestalten und veröffentlichen Geschichten, die unsere Heimat bewahren.  
+      Bücher, die nicht nur gelesen, sondern gefühlt werden.
+    </p>
   </section>
 
   <!-- ===== Footer ===== -->
   <footer>
     <p>© 2025 Kulturkiste Oederan • <a href="kontakt.html">Kontakt</a></p>
   </footer>
-
-  <!-- ===== JavaScript für Slideshow ===== -->
-  <script>
-    const slides = document.querySelectorAll('.slide');
-    let current = 0;
-    setInterval(() => {
-      slides[current].classList.remove('active');
-      current = (current + 1) % slides.length;
-      slides[current].classList.add('active');
-    }, 4000);
-  </script>
 
 </body>
 </html>
