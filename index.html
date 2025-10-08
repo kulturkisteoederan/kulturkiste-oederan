@@ -1,19 +1,16 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Kulturkiste Oederan</title>
-
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Lato:wght@300;400;600&display=swap" rel="stylesheet">
-
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --beige: #f7f4ef;
-      --braun: #3a2e2a;
-      --gold: #c19a6b;
-      --text: #2c2c2c;
+      --white: #ffffff;
+      --black: #000000;
+      --gray: #f5f5f7;
+      --accent: #c19a6b;
     }
 
     * {
@@ -23,54 +20,51 @@
     }
 
     body {
-      font-family: 'Lato', sans-serif;
-      background-color: var(--beige);
-      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      background-color: var(--white);
+      color: var(--black);
       line-height: 1.6;
-      overflow-x: hidden;
     }
 
-    /* ===== Header ===== */
     header {
       position: fixed;
       top: 0;
       width: 100%;
-      background: rgba(247, 244, 239, 0.9);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid #e6dfd6;
+      background-color: var(--white);
+      border-bottom: 1px solid #eaeaea;
+      padding: 1rem 2rem;
       display: flex;
-      align-items: center;
       justify-content: space-between;
-      padding: 0.8rem 3rem;
+      align-items: center;
       z-index: 1000;
     }
 
-    header img {
-      height: 55px;
+    header h1 {
+      font-weight: 800;
+      font-size: 1.5rem;
     }
 
     nav a {
       margin-left: 2rem;
       text-decoration: none;
-      color: var(--braun);
+      color: var(--black);
       font-weight: 600;
-      letter-spacing: 0.5px;
       transition: color 0.3s ease;
     }
 
     nav a:hover {
-      color: var(--gold);
+      color: var(--accent);
     }
 
-    /* ===== Hero ===== */
     .hero {
       height: 100vh;
-      background: url('oederan-bg.jpg') center/cover no-repeat;
+      background: url('https://source.unsplash.com/1600x900/?culture,art') center/cover no-repeat;
       display: flex;
       align-items: center;
       justify-content: center;
       text-align: center;
-      color: white;
+      padding: 2rem;
+      color: var(--white);
       position: relative;
     }
 
@@ -78,82 +72,69 @@
       content: "";
       position: absolute;
       inset: 0;
-      background: rgba(0,0,0,0.4);
+      background: rgba(0, 0, 0, 0.4);
     }
 
     .hero-content {
       position: relative;
       z-index: 2;
       max-width: 700px;
-      padding: 1rem;
-      animation: fadeIn 2s ease;
     }
 
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    .hero h1 {
-      font-family: 'Playfair Display', serif;
+    .hero h2 {
       font-size: 3rem;
+      font-weight: 800;
       margin-bottom: 1rem;
     }
 
     .hero p {
       font-size: 1.2rem;
-      margin-bottom: 2.5rem;
-      color: #f8f8f8;
+      font-weight: 400;
+      margin-bottom: 2rem;
     }
 
     .cta-btn {
-      background: var(--gold);
-      color: white;
+      background-color: var(--accent);
+      color: var(--white);
       padding: 1rem 2rem;
-      border-radius: 40px;
-      font-weight: 600;
-      letter-spacing: 0.5px;
+      border-radius: 30px;
       text-decoration: none;
-      transition: all 0.3s ease;
+      font-weight: 600;
+      transition: background 0.3s ease;
     }
 
     .cta-btn:hover {
-      background: #a17f55;
-      transform: translateY(-3px);
+      background-color: #a17f55;
     }
 
-    /* ===== Intro Section ===== */
-    .intro {
-      padding: 8rem 2rem;
+    .section {
+      padding: 6rem 2rem;
       max-width: 900px;
       margin: auto;
       text-align: center;
     }
 
-    .intro h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: 2.2rem;
-      color: var(--braun);
+    .section h3 {
+      font-size: 2rem;
+      font-weight: 800;
       margin-bottom: 1rem;
     }
 
-    .intro p {
+    .section p {
       font-size: 1.1rem;
-      color: #4b403c;
-      line-height: 1.7;
+      color: #333;
     }
 
-    /* ===== Footer ===== */
     footer {
-      background: var(--braun);
-      color: var(--beige);
+      background-color: var(--gray);
+      padding: 3rem 2rem;
       text-align: center;
-      padding: 3rem 1rem;
-      margin-top: 4rem;
+      font-size: 0.9rem;
+      color: #555;
     }
 
     footer a {
-      color: var(--gold);
+      color: var(--accent);
       text-decoration: none;
       font-weight: 600;
     }
@@ -162,57 +143,52 @@
       text-decoration: underline;
     }
 
-    /* ===== Responsive ===== */
     @media (max-width: 768px) {
-      header {
-        flex-direction: column;
-        padding: 1rem;
+      .hero h2 {
+        font-size: 2.2rem;
       }
-      nav {
-        margin-top: 0.5rem;
+
+      .hero p {
+        font-size: 1rem;
       }
-      .hero h1 { font-size: 2.2rem; }
-      .hero p { font-size: 1rem; }
-      .intro { padding: 5rem 1.5rem; }
+
+      nav a {
+        margin-left: 1rem;
+      }
     }
   </style>
 </head>
 <body>
-
-  <!-- ===== Header ===== -->
   <header>
-    <img src="logo.jpg" alt="Kulturkiste Oederan Logo">
+    <h1>Kulturkiste</h1>
     <nav>
-      <a href="index.html">Startseite</a>
-      <a href="buecher.html">Bücher</a>
-      <a href="ueber-uns.html">Über uns</a>
-      <a href="kontakt.html">Kontakt</a>
+      <a href="#home">Start</a>
+      <a href="#about">Über uns</a>
+      <a href="#events">Events</a>
+      <a href="#contact">Kontakt</a>
     </nav>
   </header>
 
-  <!-- ===== Hero ===== -->
-  <section class="hero">
+  <section class="hero" id="home">
     <div class="hero-content">
-      <h1>Geschichten, die unsere Heimat erzählen</h1>
-      <p>Willkommen bei der Kulturkiste Oederan – wo Erinnerungen lebendig bleiben.</p>
-      <a href="buecher.html" class="cta-btn">Unsere Bücher entdecken</a>
+      <h2>Kultur neu erleben</h2>
+      <p>Die Kulturkiste Oederan verbindet Menschen, Ideen und Kreativität in einem einzigartigen Raum.</p>
+      <a href="#about" class="cta-btn">Mehr erfahren</a>
     </div>
   </section>
 
-  <!-- ===== Intro-Abschnitt ===== -->
-  <section class="intro">
-    <h2>Heimat in jedem Wort</h2>
-    <p>
-      Die Kulturkiste Oederan ist ein Herzensprojekt aus Sachsen.  
-      Wir sammeln, gestalten und veröffentlichen Geschichten, die unsere Heimat bewahren.  
-      Bücher, die nicht nur gelesen, sondern gefühlt werden.
-    </p>
+  <section class="section" id="about">
+    <h3>Was ist die Kulturkiste?</h3>
+    <p>Ein Ort für Begegnung, Austausch und Inspiration. Wir bieten Workshops, Ausstellungen und Events für alle Altersgruppen.</p>
   </section>
 
-  <!-- ===== Footer ===== -->
-  <footer>
-    <p>© 2025 Kulturkiste Oederan • <a href="kontakt.html">Kontakt</a></p>
-  </footer>
+  <section class="section" id="events">
+    <h3>Unsere Veranstaltungen</h3>
+    <p>Von Konzerten über Lesungen bis hin zu kreativen Mitmachaktionen – entdecke unser vielfältiges Programm.</p>
+  </section>
 
+  <footer>
+    <p>&copy; 2025 Kulturkiste Oederan. Alle Rechte vorbehalten. | <a href="#contact">Kontakt</a></p>
+  </footer>
 </body>
 </html>
