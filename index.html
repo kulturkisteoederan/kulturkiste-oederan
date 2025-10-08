@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kulturkiste Oederan</title>
+  <meta name="description" content="Geschichten, die unsere Heimat erzählen – Willkommen bei der Kulturkiste Oederan.">
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- AOS Animationen -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  
+  <!-- Swiper.js für Slideshow -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+  <style>
+    /* Schriftarten */
+    @import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Open+Sans&display=swap');
+
+    body {
+      font-family: 'Open Sans', sans-serif;
+      background-color: #f9f5ef;
+      color: #3a2c20;
+      scroll-behavior: smooth;
+    }
+
+    h1, h2, h3 {
+      font-family: 'Merriweather', serif;
+    }
+  </style>
+</head>
+
+<body class="overflow-x-hidden">
+
+  <!-- 🔝 Header -->
+  <header class="fixed top-0 left-0 w-full bg-[#f9f5ef]/95 backdrop-blur-sm z-50 shadow-sm">
+    <div class="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
+      <img src="logo.jpg" alt="Kulturkiste Oederan Logo" class="h-12 w-auto">
+      <nav class="space-x-6 text-lg font-medium">
+        <a href="index.html" class="hover:text-amber-700">Startseite</a>
+        <a href="buecher.html" class="hover:text-amber-700">Bücher</a>
+        <a href="ueber-uns.html" class="hover:text-amber-700">Über uns</a>
+        <a href="kontakt.html" class="hover:text-amber-700">Kontakt</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- 🏞️ Hero-Bereich -->
+  <section class="relative h-screen bg-center bg-cover" style="background-image: url('oederan-bg.jpg');">
+    <div class="absolute inset-0 bg-black/40 flex flex-col justify-center items-center text-center text-white px-6">
+      <h1 class="text-4xl md:text-6xl font-serif mb-4" data-aos="fade-up">
+        Geschichten, die unsere Heimat erzählen
+      </h1>
+      <p class="text-lg md:text-xl mb-6" data-aos="fade-up" data-aos-delay="200">
+        Willkommen bei der Kulturkiste Oederan.
+      </p>
+      <a href="buecher.html" data-aos="fade-up" data-aos-delay="400"
+         class="bg-amber-700 hover:bg-amber-800 text-white px-8 py-3 rounded-lg text-lg transition">
+        Unsere Bücher entdecken
+      </a>
+    </div>
+  </section>
+
+  <!-- 📸 Slideshow -->
+  <section class="py-16 bg-[#f9f5ef]">
+    <div class="max-w-5xl mx-auto text-center mb-10" data-aos="fade-up">
+      <h2 class="text-3xl font-serif mb-4">Einblicke in Oederan</h2>
+      <p class="text-gray-700">Unsere Stadt, ihre Geschichten und die Orte, die inspirieren.</p>
+    </div>
+
+    <!-- Swiper Container -->
+    <div class="swiper max-w-4xl mx-auto rounded-2xl shadow-lg" data-aos="zoom-in">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide"><img src="altstadt.jpg" class="w-full h-[500px] object-cover" alt="Altstadt Oederan"></div>
+        <div class="swiper-slide"><img src="natur.jpg" class="w-full h-[500px] object-cover" alt="Natur Oederan"></div>
+        <div class="swiper-slide"><img src="buchcover.jpg" class="w-full h-[500px] object-cover" alt="Buchcover Kulturkiste"></div>
+      </div>
+      <!-- Pagination -->
+      <div class="swiper-pagination"></div>
+    </div>
+  </section>
+
+  <!-- 📜 Footer -->
+  <footer class="bg-[#7a5230] text-[#f9f5ef] py-6 mt-10">
+    <div class="max-w-6xl mx-auto text-center text-sm">
+      <p>&copy; 2025 Kulturkiste Oederan – Alle Rechte vorbehalten.</p>
+      <p class="mt-2">
+        <a href="impressum.html" class="underline hover:text-amber-300">Impressum</a> ·
+        <a href="datenschutz.html" class="underline hover:text-amber-300">Datenschutz</a>
+      </p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({ duration: 1000, once: true });
+
+    new Swiper('.swiper', {
+      loop: true,
+      autoplay: { delay: 4000, disableOnInteraction: false },
+      effect: 'fade',
+      pagination: { el: '.swiper-pagination', clickable: true },
+    });
+  </script>
+</body>
+</html>
